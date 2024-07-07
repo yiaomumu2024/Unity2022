@@ -51,7 +51,7 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Haunted_Demo.sln",
+    "dotnet.defaultSolution": "Mr-s-Lemon.sln",
     "cSpell.words": [
         "raycast"
     ]
