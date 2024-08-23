@@ -24,34 +24,33 @@ public class EventMgr : MonoBehaviour
         }
     }
 
-    private Dictionary<string, Action> eventDic = new Dictionary<string, Action>();
+    private Dictionary<string, Action<object[]>> eventDic = new Dictionary<string, Action<object[]>>();
 
     private void Awake()
     {
         DontDestroyOnLoad(this);
     }
 
-    public void AddListener(string eventName, Action listener)
+    public void AddListener(string eventName, Action<object[]> listener)
     {
+        if (eventDic.ContainsKey(eventName))
+        {
+            RemListener(eventName);
+        }
         eventDic.Add(eventName, listener);
     }
 
     public void RemListener(string eventName)
     {
         if (instance == null) { return; }
-
-        if (eventDic.TryGetValue(eventName, out Action thisEvent))
-        {
-            eventDic.Remove(eventName);
-        }
+        eventDic.Remove(eventName);
     }
 
-    public void TriggerEvent(string eventName)
+    public void TriggerEvent(string eventName, params object[] eventParams)
     {
-        if (eventDic.TryGetValue(eventName, out Action thisEvent))
+        if (eventDic.TryGetValue(eventName, out Action<object[]> thisEvent))
         {
-            thisEvent.Invoke();
+            thisEvent.Invoke(eventParams);
         }
     }
-
 }
