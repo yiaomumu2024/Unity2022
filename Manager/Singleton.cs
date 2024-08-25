@@ -8,6 +8,7 @@ using UnityEngine.Scripting;
 
 /// <summary>
 /// 不继承MonoBehaviour的单例基类
+/// 需要派生类声明构造器
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public class SingletonBase<T> where T : class
@@ -19,7 +20,7 @@ public class SingletonBase<T> where T : class
     {
         get
         {
-            if (instance != null)
+            if (instance == null)
             {
                 Type type = typeof(T);
                 ConstructorInfo info = type.GetConstructor(BindingFlags.Instance | BindingFlags.NonPublic, null, Type.EmptyTypes, null);
