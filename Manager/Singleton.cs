@@ -14,7 +14,7 @@ public class SingletonBase<T> where T : class
 
     private static T instance;
 
-    public static T Instance
+    public static T Ins
     {
         get
         {
@@ -38,7 +38,7 @@ public class SingletonMono<T> : MonoBehaviour where T : MonoBehaviour
 
     private static T instance;
 
-    public static T Instance
+    public static T Ins
     {
         get
         {
@@ -56,7 +56,7 @@ public class SingletonAutoMono<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T instance;
 
-    public static T Instance
+    public static T Ins
     {
         get
         {
