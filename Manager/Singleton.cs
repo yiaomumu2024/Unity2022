@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
-using UnityEngine.Scripting;
 
 /// <summary>
 /// 不继承MonoBehaviour的单例基类
