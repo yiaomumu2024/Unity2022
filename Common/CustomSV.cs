@@ -27,6 +27,7 @@ public class CustomSV<T, K> where K : ItemBase<T>
     private Dictionary<int, GameObject> itemDic = new Dictionary<int, GameObject>();
     private int oldMinIndex = -1;
     private int oldMaxIndex = -1;
+    private Vector3 tempVec = Vector3.zero;
     private string resPath;
 
     // 数据
@@ -121,7 +122,8 @@ public class CustomSV<T, K> where K : ItemBase<T>
             // 重置缩放
             item.transform.localScale = Vector3.one;
             // 重置位置
-            item.transform.localPosition = new Vector3(i % cols * totalSize, -(i / cols + 1) * totalSize, 0);
+            tempVec.Set(i % cols * totalSize, -(i / cols + 1) * totalSize, 0);
+            item.transform.localPosition = tempVec;
             // 更新信息
             item.GetComponent<K>().SetInfo(itemInfoArr[i]);
             itemDic.Add(i, item);
