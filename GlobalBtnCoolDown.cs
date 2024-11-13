@@ -38,7 +38,7 @@ public class GlobalBtnCoolDown : MonoBehaviour
     {
         if (!m_EnableSelectable)
         {
-            coolTime += Time.deltaTime;
+            coolTime += Time.unscaledDeltaTime;
             if (coolTime >= m_CoolDownDuration)
                 m_EnableSelectable = true;
         }
